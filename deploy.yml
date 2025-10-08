@@ -3,7 +3,10 @@ name: Deploy yaml file
 on:
   push:
     branches: [ "main" ]
-    workflow_dispatch: {}
+
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch: {}
 
 
 jobs:
@@ -23,3 +26,6 @@ jobs:
 
       - name: Run tests
         run: npm test
+
+      - name: Run Build
+        run: npm run build
